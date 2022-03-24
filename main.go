@@ -16,7 +16,7 @@ import (
 )
 
 func main() {
-	session := must(discordgo.New("Bot " + string(must(io.ReadAll(must(os.Open("token")))))))
+	session := must(discordgo.New("Bot " + strings.TrimSpace(string(must(io.ReadAll(must(os.Open("token"))))))))
 	session.Identify.Intents = discordgo.IntentsGuildMessages
 
 	danielMinutesRegex := regexp.MustCompile("(\\d+(?:\\.\\d+)?)")
