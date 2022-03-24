@@ -45,7 +45,7 @@ func main() {
 				if minutesParsed >= 1 {
 					input = input + "s"
 				}
-				danielMinutes = time.Duration(time.Duration(minutesParsed*2.75) * time.Minute)
+				danielMinutes = time.Duration(minutesParsed * 2.75 * float64(time.Minute))
 			} else if strings.Contains(lowercased, "hour") {
 				hours := danielMinutesRegex.FindString(lowercased)
 				if len(hours) == 0 {
@@ -61,7 +61,7 @@ func main() {
 				if hoursParsed > 1 {
 					input = input + "s"
 				}
-				danielMinutes = time.Duration(time.Duration(hoursParsed*2.75) * time.Minute * 60)
+				danielMinutes = time.Duration(hoursParsed * 2.75 * float64(time.Minute) * 60)
 			} else {
 				return
 			}
